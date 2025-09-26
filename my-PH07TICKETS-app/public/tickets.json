@@ -1,0 +1,111 @@
+
+[
+  {
+    "id": "001",
+    "title": "Unable to login to account",
+    "description": "Customer reports 'invalid credentials' after entering correct password. Happens on mobile app and web.",
+    "customer": "Karim Ahmed",
+    "priority": "High",
+    "status": "Open",
+    "createdAt": "2025-09-20"
+  },
+  {
+    "id": "002",
+    "title": "Order not appearing in order history",
+    "description": "shows as completed in payment gateway but not in user's order history.",
+    "customer": "Nadia Rahman",
+    "priority": "Medium",
+    "status": "In_Progress",
+    "createdAt": "2025-09-18"
+  },
+  {
+    "id": "003",
+    "title": "App crashes on launch (Android)",
+    "description": "Several users report crash immediately after opening the app on Android 12 devices.",
+    "customer": "Ahmed",
+    "priority": "High",
+    "status": "Open",
+    "createdAt": "2025-09-22"
+  },
+  {
+    "id": "004",
+    "title": "Refund not processed",
+    "description": "Customer requested refund 7 days ago but refund status still pending in admin panel.",
+    "customer": "Rifat Hossain",
+    "priority": "High",
+    "status": "Pending",
+    "createdAt": "2025-09-12"
+  },
+  {
+    "id": "005",
+    "title": "Feature request: bulk invoice export",
+    "description": "Request to add CSV export for invoices with date-range filter and status columns.",
+    "customer": "Acc Team",
+    "priority": "Low",
+    "status": "In_Progress",
+    "createdAt": "2025-08-30"
+  },
+  {
+    "id": "006",
+    "title": "Slow page load on product listing",
+    "description": "Product listing page takes 8-10 seconds to load for users with large carts.",
+    "customer": "Monitor",
+    "priority": "Medium",
+    "status": "In_Progress",
+    "createdAt": "2025-09-05"
+  },
+  {
+    "id": "007",
+    "title": "Incorrect tax calculation at checkout",
+    "description": "Taxes are applied twice for some shipping regions causing order total mismatch.",
+    "customer": "Shop Owner - BD",
+    "priority": "High",
+    "status": "Open",
+    "createdAt": "2025-09-10"
+  },
+  {
+    "id": "008",
+    "title": "Email notifications not sending",
+    "description": "Transactional emails (order confirmation) not being delivered to users with Yahoo addresses.",
+    "customer": "Support",
+    "priority": "Medium",
+    "status": "Open",
+    "createdAt": "2025-09-21"
+  },
+  {
+    "id": "009",
+    "title": "UI overlap on small screens",
+    "description": "Checkout button overlaps promo input on screens smaller than 360px.",
+    "customer": "Frontend QA",
+    "priority": "Low",
+    "status": "Open",
+    "createdAt": "2025-09-02"
+  },
+  {
+    "id": "010",
+    "title": "Password reset email link expired instantly",
+    "description": "Users report password reset link showing expired immediately after generation.",
+    "customer": "User Feedback",
+    "priority": "High",
+    "status": "In_Progress",
+    "createdAt": "2025-09-15"
+  },
+  {
+    "id": "011",
+    "title": "Search returns irrelevant results",
+    "description": "Search queries return unrelated products; fuzzy matching seems broken after last deploy.",
+    "customer": "Catalog Team",
+    "priority": "Medium",
+    "status": "In_Progress",
+    "createdAt": "2025-09-08"
+  },
+  {
+    "id": "012",
+    "title": "Two-factor authentication not optional",
+    "description": "Users cannot opt out of 2FA even when the setting is turned off in profile.",
+    "customer": "Security",
+    "priority": "Medium",
+    "status": "Open",
+    "createdAt": "2025-09-19"
+  }
+]
