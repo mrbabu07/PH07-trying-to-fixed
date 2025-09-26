@@ -1,25 +1,27 @@
 import React, { useState } from "react";
 
-const Cart = ({ issues }) => {
-  // State for selected tasks
-  const [inProgressTasks, setInProgressTasks] = useState([]);
+const Cart = ({ issues, inProgressTasks, setInProgressTasks, resolvedTasks, setResolvedTasks }) => {
 
-  // Handle when ticket is clicked
   const handleTaskClick = (issue) => {
-    // Check if already exists (duplicate avoid)
-    if (!inProgressTasks.find((task) => task.id === issue.id)) {
-      setInProgressTasks([...inProgressTasks, issue]);
+    if (!inProgressTasks.find(task => task.id === issue.id)) {
+      setInProgressTasks([...inProgressTasks, issue])
     }
-  };
+  }
+
+  const handleComplete = (task) => {
+    setResolvedTasks([...resolvedTasks, task])
+    setInProgressTasks(inProgressTasks.filter(t => t.id !== task.id))
+  }
 
   return (
-    <div className="grid grid-cols-3 gap-4">
-      {/* Left Side → Tickets (2 cols) */}
-      <div className="col-span-2 grid grid-cols-2 gap-4">
-        {issues.map((issue) => (
+    <div className="container mx-auto grid gird-cols-1 md:grid-cols-3 gap-4 mb-5">
+      
+      {/* Left Side → Tickets */}
+      <div className="md:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+        {issues.map(issue => (
           <div
             key={issue.id}
-            onClick={() => handleTaskClick(issue)} // 🔥 add click handler
+            onClick={() => handleTaskClick(issue)}
             className="bg-white shadow-md rounded-lg p-4 hover:shadow-lg transition cursor-pointer w-full"
           >
             {/* Title + Status */}
@@ -75,7 +77,7 @@ const Cart = ({ issues }) => {
       {/* Right Side → Task Status */}
       <div className="bg-white shadow-md rounded-lg p-6 w-full h-full">
         <h2 className="font-semibold text-lg mb-3">
-          Task Status ({inProgressTasks.length}) {/* 🔥 count */}
+          Task Status ({inProgressTasks.length})
         </h2>
 
         {inProgressTasks.length === 0 ? (
@@ -85,24 +87,44 @@ const Cart = ({ issues }) => {
           </p>
         ) : (
           <div className="space-y-3">
-            {inProgressTasks.map((task) => (
+            {inProgressTasks.map(task => (
               <div
                 key={task.id}
-                className="justify-between items-center bg-gray-50 px-3 py-2 rounded-lg"
+                className="justify-between items-center bg-gray-50 px-3 py-2 rounded-lg flex flex-col gap-2"
               >
                 <span className="font-medium text-gray-800">{task.title}</span>
-                <button className="text-xs bg-green-500 text-white w-full px-3 py-2 rounded">
+                <button
+                  onClick={() => handleComplete(task)}
+                  className="text-xs bg-green-500 text-white w-full px-3 py-2 rounded"
+                >
                   Complete
                 </button>
               </div>
-              
             ))}
           </div>
         )}
-      </div>
-      
-    </div>
-  );
-};
 
-export default Cart;
+        {/* Resolved Section */}
+        <div className="mt-6">
+          <h2 className="font-semibold text-lg mb-3">
+            Resolved Tasks ({resolvedTasks.length})
+          </h2>
+          {resolvedTasks.length === 0 ? (
+            <p className="text-gray-500 text-sm">No resolved tasks yet</p>
+          ) : (
+            resolvedTasks.map(task => (
+              <div
+                key={task.id}
+                className="p-2 bg-gray-100 rounded mb-2 text-gray-700"
+              >
+                {task.title}
+              </div>
+            ))
+          )}
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export default Cart

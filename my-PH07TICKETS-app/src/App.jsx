@@ -1,36 +1,48 @@
 import "./App.css";
-
-
-
-import { Suspense } from "react";
+import { useState, useEffect } from "react";
 import Boxes from "./assets/components/Boxes";
 import Navbar from "./Navbar";
 import Footer from "./assets/components/Footer";
-import IssuesManagement from "./issuesManagement";
-
-
-  
-
-
-const fetchIssues = async () => {
-  const result = await fetch("/tickets.json");
-  return result.json();
-};
+import Cart from "./assets/components/Cart";
 
 function App() {
-  const fetchPromise = fetchIssues();
+  // State for issues (all tickets)
+  const [issues, setIssues] = useState([]);
+
+  // State for task management
+  const [inProgressTasks, setInProgressTasks] = useState([]);
+  const [resolvedTasks, setResolvedTasks] = useState([]);
+
+  // Fetch issues
+  useEffect(() => {
+    const fetchIssues = async () => {
+      const result = await fetch("/tickets.json");
+      const data = await result.json();
+      setIssues(data);
+    };
+    fetchIssues();
+  }, []);
 
   return (
     <>
-      <Navbar/>
+      <Navbar />
 
-      <Boxes> </Boxes>
+      {/* Boxes → show counts */}
+      <Boxes
+        inProgressCount={inProgressTasks.length}
+        resolvedCount={resolvedTasks.length}
+      />
 
-      <Suspense fallback={<div>Loading...</div>}>
-        <IssuesManagement fetchPromise={fetchPromise} />
-      </Suspense>
+      {/* Cart → pass data + handlers */}
+      <Cart
+        issues={issues}
+        inProgressTasks={inProgressTasks}
+        setInProgressTasks={setInProgressTasks}
+        resolvedTasks={resolvedTasks}
+        setResolvedTasks={setResolvedTasks}
+      />
 
-      <Footer/>
+      <Footer />
     </>
   );
 }
