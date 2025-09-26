@@ -1,24 +1,29 @@
-import React, { useState } from "react";
+// import React, { useState } from "react";
 
-const Cart = ({ issues, inProgressTasks, setInProgressTasks, resolvedTasks, setResolvedTasks }) => {
-
+const Cart = ({
+  issues,
+  inProgressTasks,
+  setInProgressTasks,
+  resolvedTasks,
+  setResolvedTasks,
+}) => {
   const handleTaskClick = (issue) => {
-    if (!inProgressTasks.find(task => task.id === issue.id)) {
-      setInProgressTasks([...inProgressTasks, issue])
+    if (!inProgressTasks.find((task) => task.id === issue.id)) {
+      setInProgressTasks([...inProgressTasks, issue]);
+      alert(`"${issue.title}" is now In-Progress`);
     }
-  }
+  };
 
   const handleComplete = (task) => {
-    setResolvedTasks([...resolvedTasks, task])
-    setInProgressTasks(inProgressTasks.filter(t => t.id !== task.id))
-  }
+    setResolvedTasks([...resolvedTasks, task]);
+    setInProgressTasks(inProgressTasks.filter((t) => t.id !== task.id));
+  };
 
   return (
     <div className="container mx-auto grid gird-cols-1 md:grid-cols-3 gap-4 mb-5">
-      
       {/* Left Side → Tickets */}
       <div className="md:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-4">
-        {issues.map(issue => (
+        {issues.map((issue) => (
           <div
             key={issue.id}
             onClick={() => handleTaskClick(issue)}
@@ -87,7 +92,7 @@ const Cart = ({ issues, inProgressTasks, setInProgressTasks, resolvedTasks, setR
           </p>
         ) : (
           <div className="space-y-3">
-            {inProgressTasks.map(task => (
+            {inProgressTasks.map((task) => (
               <div
                 key={task.id}
                 className="justify-between items-center bg-gray-50 px-3 py-2 rounded-lg flex flex-col gap-2"
@@ -112,7 +117,7 @@ const Cart = ({ issues, inProgressTasks, setInProgressTasks, resolvedTasks, setR
           {resolvedTasks.length === 0 ? (
             <p className="text-gray-500 text-sm">No resolved tasks yet</p>
           ) : (
-            resolvedTasks.map(task => (
+            resolvedTasks.map((task) => (
               <div
                 key={task.id}
                 className="p-2 bg-gray-100 rounded mb-2 text-gray-700"
@@ -124,7 +129,7 @@ const Cart = ({ issues, inProgressTasks, setInProgressTasks, resolvedTasks, setR
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Cart
+export default Cart;

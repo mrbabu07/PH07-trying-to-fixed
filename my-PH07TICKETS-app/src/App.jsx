@@ -1,13 +1,17 @@
+
 import "./App.css";
+
 import { useState, useEffect } from "react";
 import Boxes from "./assets/components/Boxes";
 import Navbar from "./Navbar";
 import Footer from "./assets/components/Footer";
 import Cart from "./assets/components/Cart";
 
+
 function App() {
   // State for issues (all tickets)
   const [issues, setIssues] = useState([]);
+  
 
   // State for task management
   const [inProgressTasks, setInProgressTasks] = useState([]);
@@ -42,7 +46,12 @@ function App() {
         setResolvedTasks={setResolvedTasks}
       />
 
+     
+
+
+      
       <Footer />
+      
     </>
   );
 }

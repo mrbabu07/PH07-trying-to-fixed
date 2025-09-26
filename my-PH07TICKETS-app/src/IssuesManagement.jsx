@@ -11,7 +11,10 @@ const IssuesManagement = ({ fetchPromise }) => {
       <h1 className="text-xl font-bold mb-4">Customer Tickets</h1>
       <Cart issues={issues} />
     </div>
+
+    
   );
 };
+
 
 export default IssuesManagement;
