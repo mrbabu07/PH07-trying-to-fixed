@@ -13,7 +13,7 @@ const Cart = ({ issues }) => {
   };
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+    <div className="grid grid-cols-3 gap-4">
       {/* Left Side → Tickets (2 cols) */}
       <div className="col-span-2 grid grid-cols-2 gap-4">
         {issues.map((issue) => (
@@ -75,7 +75,7 @@ const Cart = ({ issues }) => {
       {/* Right Side → Task Status */}
       <div className="bg-white shadow-md rounded-lg p-6 w-full h-full">
         <h2 className="font-semibold text-lg mb-3">
-           Task Status 
+          Task Status ({inProgressTasks.length}) {/* 🔥 count */}
         </h2>
 
         {inProgressTasks.length === 0 ? (
@@ -88,17 +88,19 @@ const Cart = ({ issues }) => {
             {inProgressTasks.map((task) => (
               <div
                 key={task.id}
-                className=" justify-between items-center bg-gray-50 px-3 py- rounded-lg"
+                className="justify-between items-center bg-gray-50 px-3 py-2 rounded-lg"
               >
                 <span className="font-medium text-gray-800">{task.title}</span>
-                <button className="text-xs bg-green-500 text-white px-3 py-2 w-full rounded">
+                <button className="text-xs bg-green-500 text-white w-full px-3 py-2 rounded">
                   Complete
                 </button>
               </div>
+              
             ))}
           </div>
         )}
       </div>
+      
     </div>
   );
 };
