@@ -1,9 +1,7 @@
 import React, { use } from "react";
 import Cart from "./assets/components/Cart";
 
-
 const IssuesManagement = ({ fetchPromise }) => {
-  // Suspense + use() দিয়ে data resolve করছো
   const issues = use(fetchPromise);
 
   return (
@@ -11,10 +9,7 @@ const IssuesManagement = ({ fetchPromise }) => {
       <h1 className="text-xl font-bold mb-4">Customer Tickets</h1>
       <Cart issues={issues} />
     </div>
-
-    
   );
 };
-
 
 export default IssuesManagement;

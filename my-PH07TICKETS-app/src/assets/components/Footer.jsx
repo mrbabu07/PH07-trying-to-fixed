@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <div className="bg-black text-white py-10">
       <Container>
-        <div className="grid grid-cols-1 text-center gap-8 lg:grid-cols-5 lg:gap-12">
+        <div className="grid grid-cols-1 md:text-left text-center gap-8 lg:grid-cols-5 lg:gap-12">
           {/* Company Info */}
           <div>
             <h1 className="text-lg font-semibold mb-3">CS — Ticket System</h1>
@@ -47,12 +47,14 @@ const Footer = () => {
           {/* Social */}
           <div>
             <h1 className="font-semibold mb-3">Social Links</h1>
-            <ul className="space-y-2 text-sm text-gray-400">
-              <li>@CS — Ticket System</li>
-              <li>@CS — Ticket System</li>
-              <li>@CS — Ticket System</li>
-              <li>support@cst.com</li>
+            <div className="flex justify-center items-center">
+              <ul className="space-y-2 text-sm text-gray-400">
+              <li className="flex gap-1"><img src="/Group.png" alt="" />@CS — Ticket System</li>
+              <li className="flex gap-1"><img src="/fi_145807.png" alt="" />@CS — Ticket System</li>
+              <li className="flex gap-1"><img src="/facebook.png" alt="" />@CS — Ticket System</li>
+              <li className="flex gap-1"><img src="/Group.png" alt="" />support@cst.com</li>
             </ul>
+            </div>
           </div>
         </div>
 
