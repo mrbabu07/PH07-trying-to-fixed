@@ -1,5 +1,5 @@
 import "./App.css";
-
+import Swal from "sweetalert2";
 import { useState, useEffect } from "react";
 import Boxes from "./assets/components/Boxes";
 import Navbar from "./Navbar";

@@ -1,4 +1,5 @@
 // import React, { useState } from "react";
+import Swal from "sweetalert2";
 
 const Cart = ({
   issues,
@@ -10,7 +11,13 @@ const Cart = ({
   const handleTaskClick = (issue) => {
     if (!inProgressTasks.find((task) => task.id === issue.id)) {
       setInProgressTasks([...inProgressTasks, issue]);
-      alert(`"${issue.title}" is now In-Progress`);
+      // toast(`"${issue.title}" is now In-Progress`);
+      Swal.fire({
+        title: "Processing",
+        text: `"${issue.title}" is now In-Progress`,
+        icon: "info",
+        confirmButtonText: "OK",
+      });
     }
   };
 
