@@ -127,7 +127,7 @@ const Cart = ({
             resolvedTasks.map((task) => (
               <div
                 key={task.id}
-                className="p-2 bg-gray-100 rounded mb-2 text-gray-700"
+                className="p-2 bg-blue-100 rounded mb-2 text-gray-700"
               >
                 {task.title}
               </div>
